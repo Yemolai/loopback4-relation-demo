@@ -1,21 +1,13 @@
-import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
-  get,
-} from '@loopback/rest';
-import {
-  User,
-  Person,
-} from '../models';
+import {repository} from '@loopback/repository';
+import {param, get} from '@loopback/rest';
+import {User, Person} from '../models';
 import {UserRepository} from '../repositories';
 
 export class UserPersonController {
   constructor(
     @repository(UserRepository)
     public userRepository: UserRepository,
-  ) { }
+  ) {}
 
   @get('/users/{id}/person', {
     responses: {
@@ -23,7 +15,7 @@ export class UserPersonController {
         description: 'Person belonging to User',
         content: {
           'application/json': {
-            schema: { type: 'array', items: { 'x-ts-type': Person } },
+            schema: {type: 'array', items: {'x-ts-type': Person}},
           },
         },
       },

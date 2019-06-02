@@ -16,20 +16,20 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import { Person } from '../models';
-import { PersonRepository } from '../repositories';
+import {Person} from '../models';
+import {PersonRepository} from '../repositories';
 
 export class PersonController {
   constructor(
     @repository(PersonRepository)
     public personRepository: PersonRepository,
-  ) { }
+  ) {}
 
   @post('/people', {
     responses: {
       '200': {
         description: 'Person model instance',
-        content: { 'application/json': { schema: { 'x-ts-type': Person } } },
+        content: {'application/json': {schema: {'x-ts-type': Person}}},
       },
     },
   })
@@ -41,12 +41,13 @@ export class PersonController {
     responses: {
       '200': {
         description: 'Person model count',
-        content: { 'application/json': { schema: CountSchema } },
+        content: {'application/json': {schema: CountSchema}},
       },
     },
   })
   async count(
-    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where<Person>,
+    @param.query.object('where', getWhereSchemaFor(Person))
+    where?: Where<Person>,
   ): Promise<Count> {
     return await this.personRepository.count(where);
   }
@@ -57,14 +58,15 @@ export class PersonController {
         description: 'Array of Person model instances',
         content: {
           'application/json': {
-            schema: { type: 'array', items: { 'x-ts-type': Person } },
+            schema: {type: 'array', items: {'x-ts-type': Person}},
           },
         },
       },
     },
   })
   async find(
-    @param.query.object('filter', getFilterSchemaFor(Person)) filter?: Filter<Person>,
+    @param.query.object('filter', getFilterSchemaFor(Person))
+    filter?: Filter<Person>,
   ): Promise<Person[]> {
     return await this.personRepository.find(filter);
   }
@@ -73,13 +75,14 @@ export class PersonController {
     responses: {
       '200': {
         description: 'Person PATCH success count',
-        content: { 'application/json': { schema: CountSchema } },
+        content: {'application/json': {schema: CountSchema}},
       },
     },
   })
   async updateAll(
     @requestBody() person: Person,
-    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where<Person>,
+    @param.query.object('where', getWhereSchemaFor(Person))
+    where?: Where<Person>,
   ): Promise<Count> {
     return await this.personRepository.updateAll(person, where);
   }
@@ -88,7 +91,7 @@ export class PersonController {
     responses: {
       '200': {
         description: 'Person model instance',
-        content: { 'application/json': { schema: { 'x-ts-type': Person } } },
+        content: {'application/json': {schema: {'x-ts-type': Person}}},
       },
     },
   })

@@ -3,3 +3,8 @@ export * from './person.controller';
 export * from './user.controller';
 export * from './user-person.controller';
 export * from './person-user.controller';
+export * from './order.controller';
+export * from './product.controller';
+export * from './order-product.controller';
+export * from './order-order-product.controller';
+export * from './product-order-product.controller';

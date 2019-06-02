@@ -1,7 +1,7 @@
-import { Entity, model, property, belongsTo } from '@loopback/repository';
-import { Person } from './person.model';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Person} from './person.model';
 
-@model({ settings: {} })
+@model({settings: {}})
 export class User extends Entity {
   @property({
     type: 'number',

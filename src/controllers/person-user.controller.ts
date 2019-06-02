@@ -14,24 +14,21 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Person,
-  User,
-} from '../models';
-import { PersonRepository } from '../repositories';
+import {Person, User} from '../models';
+import {PersonRepository} from '../repositories';
 
 export class PersonUserController {
   constructor(
     @repository(PersonRepository) protected personRepository: PersonRepository,
-  ) { }
+  ) {}
 
   @get('/people/{id}/users', {
     responses: {
       '200': {
-        description: 'Array of User\'s belonging to Person',
+        description: "Array of User's belonging to Person",
         content: {
           'application/json': {
-            schema: { type: 'array', items: { 'x-ts-type': User } },
+            schema: {type: 'array', items: {'x-ts-type': User}},
           },
         },
       },
@@ -48,7 +45,7 @@ export class PersonUserController {
     responses: {
       '200': {
         description: 'Person model instance',
-        content: { 'application/json': { schema: { 'x-ts-type': User } } },
+        content: {'application/json': {schema: {'x-ts-type': User}}},
       },
     },
   })
@@ -63,7 +60,7 @@ export class PersonUserController {
     responses: {
       '200': {
         description: 'Person.User PATCH success count',
-        content: { 'application/json': { schema: CountSchema } },
+        content: {'application/json': {schema: CountSchema}},
       },
     },
   })
@@ -79,7 +76,7 @@ export class PersonUserController {
     responses: {
       '200': {
         description: 'Person.User DELETE success count',
-        content: { 'application/json': { schema: CountSchema } },
+        content: {'application/json': {schema: CountSchema}},
       },
     },
   })

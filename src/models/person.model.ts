@@ -1,7 +1,7 @@
-import { Entity, model, property, hasMany } from '@loopback/repository';
-import { User } from './user.model';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {User} from './user.model';
 
-@model({ settings: {} })
+@model({settings: {}})
 export class Person extends Entity {
   @property({
     type: 'number',
