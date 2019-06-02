@@ -25,8 +25,6 @@ export class User extends Entity {
   @belongsTo(() => Person)
   personId: number;
 
-  [k: string]: any
-
   constructor(data?: Partial<User>) {
     super(data);
   }

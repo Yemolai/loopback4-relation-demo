@@ -46,7 +46,7 @@ export class PersonController {
     },
   })
   async count(
-    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where,
+    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where<Person>,
   ): Promise<Count> {
     return await this.personRepository.count(where);
   }
@@ -79,7 +79,7 @@ export class PersonController {
   })
   async updateAll(
     @requestBody() person: Person,
-    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where,
+    @param.query.object('where', getWhereSchemaFor(Person)) where?: Where<Person>,
   ): Promise<Count> {
     return await this.personRepository.updateAll(person, where);
   }

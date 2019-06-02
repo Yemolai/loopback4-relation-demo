@@ -70,7 +70,7 @@ export class PersonUserController {
   async patch(
     @param.path.number('id') id: number,
     @requestBody() user: Partial<User>,
-    @param.query.object('where', getWhereSchemaFor(User)) where?: Where,
+    @param.query.object('where', getWhereSchemaFor(User)) where?: Where<User>,
   ): Promise<Count> {
     return await this.personRepository.users(id).patch(user, where);
   }
@@ -85,7 +85,7 @@ export class PersonUserController {
   })
   async delete(
     @param.path.number('id') id: number,
-    @param.query.object('where', getWhereSchemaFor(User)) where?: Where,
+    @param.query.object('where', getWhereSchemaFor(User)) where?: Where<User>,
   ): Promise<Count> {
     return await this.personRepository.users(id).delete(where);
   }
